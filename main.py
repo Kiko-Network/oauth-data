@@ -1,9 +1,8 @@
 from fastapi import FastAPI
-from database import create_tables, engine
-import models
+from app.database.database import create_tables, engine
 from dotenv import load_dotenv
-import auth
-import air_quality
+from app.auth import auth
+from app.air_quality import air_quality
 
 load_dotenv()  # Load environment variables from .env file
 
@@ -21,4 +20,3 @@ async def startup_event():
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
-
